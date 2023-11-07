@@ -1,0 +1,291 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font Sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font Weights:
+Default: 400
+Medium: 500
+Semi-bold: 600
+bold: 700
+
+- Line Heights:
+Default: 1
+Small: 1.05
+Medium: 1.2
+Paragraph default: 1.6
+Large: 1.8
+
+- Letter Spacings:
+-0.5px
+0.75px
+
+--- 02 COLOR SYSTEM
+
+- Primary: #e67e22
+- Tints:
+#fdf2e9
+#fae5d3
+
+- Shades:
+#cf711f
+#45260a
+
+- Accents:
+- Greys:
+#888
+#767676 (lightest grey allowed on #fff)
+#6f6f6f (lightest grey allowed on #fdf2e9)
+#555
+#333
+
+--- 05 SHADOW SYSTEM
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075)
+0 3.2rem 6.4rem rgba(0, 0, 0, 0.06)
+
+--- 06 BORDER RADIUS SYSTEM
+
+Default: 9px
+Medium: 11px
+
+--- 07 WHITESPACE SYSTEM
+
+- Spacing (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+/* ************************************** */
+/* RESET */
+/* ************************************** */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /*
+    font-size = 10px 
+    10px / 16px = 0.625 = 62.5%
+    Size of user's browser font-size setting.
+    */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  /* Doesn't work on Safari */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #555;
+
+  /* Only works if there's nothing absolutely positioned in relation to body. */
+  overflow-x: hidden;
+}
+
+/* ************************************** */
+/* HELPER CLASSES */
+/* ************************************** */
+
+.center-text {
+  text-align: center;
+}
+
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.container {
+  /* Slightly smaller than the hero section. */
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+}
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+/* ************************************** */
+/* GENERAL COMPONENTS */
+/* ************************************** */
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  text-decoration: none;
+
+  transition: all 0.3s;
+
+  /* Only necessary for .btn */
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--contained:link,
+.btn--contained:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--contained:hover,
+.btn--contained:active {
+  background-color: #cf711f;
+}
+
+.btn--outlined:link,
+.btn--outlined:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outlined:hover,
+.btn--outlined:active {
+  background-color: #fdf2e9;
+  /* Trick to have a border inside of an element. */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-color: transparent;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #333;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  display: block;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.75px;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  list-style: none;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+}
